@@ -19,11 +19,12 @@ let weather = {
     },
     displayWeather: function (data) {
       const { name } = data;
+      const { lon, lat } = data.coord;
       const { country } = data.sys;
       const { icon, description } = data.weather[0];
       const { temp, feels_like, temp_min, temp_max, humidity, pressure } = data.main;
-      const { speed, deg } = data.wind;
-      document.querySelector(".city").innerText = "Météo à " + name + ', ' + country;
+      const { gust, speed, deg } = data.wind;
+      document.querySelector(".city").innerText = name + ', ' + country;
       document.querySelector(".icon").src =
         "https://openweathermap.org/img/wn/" + icon + ".png";
       document.querySelector(".description").innerText = description;
@@ -36,16 +37,16 @@ let weather = {
         "Maximale: " + temp_max + " °C";
       document.querySelector(".pressure").innerText =
         "Pression: " + pressure + " hPa";
-      document.querySelector(".sea").innerText =
-        "Pression au niveau de la mer: " + pressure + " hPa";
-      document.querySelector(".ground").innerText =
-        "Pression au niveau du sol: " + pressure + " hPa";
       document.querySelector(".humidity").innerText =
         "Humidité: " + humidity + "%";
       document.querySelector(".wind").innerText =
         "Vent: " + speed + " km/h";
+      document.querySelector(".rafale").innerText =
+        "Rafale: " + gust + " km/h";
       document.querySelector(".direction").innerText =
         "Direction: " + deg + " Degrés";
+      document.querySelector(".mappy").src =
+        "https://embed.windy.com/embed2.html?lat=" + "40.712776" + "&lon=" + "-74.005974" + "&detailLat=" + "40.712776" + "&detailLon=" + "-74.005974" + "&width=1250&height=650&zoom=8&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1";
       document.querySelector(".weather").classList.remove("loading");
     },
     search: function () {
@@ -56,7 +57,7 @@ let weather = {
   document.querySelector(".search button").addEventListener("click", function () {
     weather.search();
   });
-  
+
   document
     .querySelector(".search-bar")
     .addEventListener("keyup", function (event) {
@@ -64,5 +65,5 @@ let weather = {
         weather.search();
       }
     });
-  
+
   weather.fetchWeather("Montpellier");
