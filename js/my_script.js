@@ -10,8 +10,8 @@ let weather = {
       )
         .then((response) => {
           if (!response.ok) {
-            alert("Erreur, aucune météo trouvé.");
-            throw new Error("Erreur, aucune météo trouvé.");
+            alert("Erreur: '" + city + "' n'existe pas.");
+            throw new Error("Erreur: '" + city + "' n'existe pas.");
           }
           return response.json();
         })
@@ -24,6 +24,7 @@ let weather = {
       const { icon, description } = data.weather[0];
       const { temp, feels_like, temp_min, temp_max, humidity, pressure } = data.main;
       const { gust, speed, deg } = data.wind;
+      const { all } = data.clouds;
       document.querySelector(".city").innerText = name + ', ' + country;
       document.querySelector(".icon").src =
         "https://openweathermap.org/img/wn/" + icon + ".png";
@@ -43,10 +44,12 @@ let weather = {
         "Vent: " + speed + " km/h";
       document.querySelector(".rafale").innerText =
         "Rafale: " + gust + " km/h";
+      document.querySelector(".nuage").innerText =
+        "Couverture Nuageuse: " + all + " %";
       document.querySelector(".direction").innerText =
         "Direction: " + deg + " Degrés";
       document.querySelector(".mappy").src =
-        "https://embed.windy.com/embed2.html?lat=" + "40.712776" + "&lon=" + "-74.005974" + "&detailLat=" + "40.712776" + "&detailLon=" + "-74.005974" + "&width=1250&height=650&zoom=8&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1";
+        "https://embed.windy.com/embed2.html?lat=" + lat + "&lon=" + lon + "&detailLat=" + lat + "&detailLon=" + lon + "&width=1250&height=650&zoom=12&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1";
       document.querySelector(".weather").classList.remove("loading");
     },
     search: function () {
