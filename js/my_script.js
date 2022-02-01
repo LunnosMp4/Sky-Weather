@@ -10,12 +10,12 @@ let weather = {
       )
         .then((response) => {
           if (!response.ok) {
-            alert("Erreur: '" + city + "' n'existe pas.");
+            alert("Erreur: '" +city + "' n'existe pas.");
             throw new Error("Erreur: '" + city + "' n'existe pas.");
           }
           return response.json();
         })
-        .then((data) => this.displayWeather(data));
+        .then((data) => this.displayWeather(data)); 
     },
     displayWeather: function (data) {
       const { name } = data;
