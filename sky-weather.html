@@ -16,19 +16,18 @@
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
 	
 	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/bootstrapweather.css">
 	<link rel="stylesheet" href="css/weatherstyle.css">
 	<script src="js/modernizr-2.6.2.min.js"></script>
-	<script src="js/my_script.js" defer></script>
+	<script src="js/weather.js" defer></script>
 
 	</head>
 	<body>
-		
 	<div id="page">
 	<nav class="fh5co-nav" role="navigation"></nav>
 	<div class="container-wrap">
 		<div id="fh5co-counter" class="fh5co-counters">
-			<div class="row animate-box">
+			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
 					<div class="row">
 						<div class="search">
@@ -45,11 +44,13 @@
 			</div>
 		</div>
 		<div class="col-md-4 col-md-push-2"><h1 class="city">Montpellier, FR</h1></div>
-
+		<div class="leve col-md-8 col-md-push-2"> Lever du Soleil: 8:00:00 GMT</div>
+		<div class="couche col-md-8 col-md-push-2"> Coucher du Soleil: 20:00:00 GMT</div>
 		<div id="fh5co-work" class="fh5co-light-grey">
-			<div class="row animate-box">
-					<div class="col-md-4 col-md-push-1 animate-box">
-					<h1 class="temp">16°C</h1>
+			<div class="row">
+					<div class="col-md-3 col-md-push-2">
+						<h4 class="temp">16°C</h4>
+						<hr class="solid">
 						<div class="flex">
 							<img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
 							<div class="description">Cloudy</div>
@@ -57,21 +58,32 @@
 						<div class="min">Minimale: 13°C</div>
 						<div class="max">Maximale: 17°C</div>
 						<div class="feels_like">Ressentie: 15°C</div>
+						<span style="opacity:0;">.</span> 
 					</div>
-				<div class="col-md-4 col-md-push-2 animate-box">
+				<div class="col-md-5 col-md-push-2">
 					<h2>Informations Avancées</h2>
-					<div class="pressure">Pressure: 1015 hPa</div>
-					<div class="humidity">Humidity: 60%</div>
-					<div class="wind">Wind speed: 6.2 km/h</div>
-					<div class="rafale">Gust: 9 km/h</div>
-					<div class="nuage">Couverture Nuageuse: 0%</div>
-					<div class="direction">Wind Direction: NE</div>
+					<hr class="solid">
+					<div class="pressure">Pression: 1015 hPa</div>
+					<div class="humidity">Humidité: 60%</div>
+					<div class="visibility">Visibilité: 10000 m</div>
+					<div class="wind">Vent: 6.20 km/h</div>
+					<div class="rafale">Rafale: 9.55 km/h</div>
+					<div class="nuage">Couverture Nuageuse: 0 %</div>
+					<div class="direction">Direction: Nord Ouest</div>
 				</div>
 			</div>
 		</div>
 		<div id="fh5co-work" class="fh5co-light-black">
 			<div class="card">	
-				<iframe class="mappy animate-box" width="948" height="450" src="https://embed.windy.com/embed2.html?lat=43.640&lon=3.895&detailLat=43.640&detailLon=3.895&width=1250&height=650&zoom=8&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
+				<iframe class="mappy" width="948" height="450" src="https://embed.windy.com/embed2.html?lat=43.640&lon=3.895&detailLat=43.640&detailLon=3.895&width=1250&height=650&zoom=8&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
+			</div>
+		</div>
+		<div class="row copyright">
+			<div class="col-md-12 text-center">
+				<p>
+					<small class="block">&copy; 2022. All Rights Reserved.</small> 
+					<small class="block">Designed by Loïc Tisseyre</small>
+				</p>
 			</div>
 		</div>
 	</div>>
@@ -80,7 +92,6 @@
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
 	</div>
-
 	</body>
 </html>
 
